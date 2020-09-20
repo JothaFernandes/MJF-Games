@@ -1,0 +1,135 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+body{
+    background-color: #2F4F4F;
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(10, 10, 9);
+    font-family: 'Balsamiq Sans';
+}
+
+main{
+    background-color: white;
+    width: 700px;
+    margin: auto;
+    padding: 10px;
+    align-items: center;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
+}
+#header-page h1{
+    font-size: 20px;
+}
+.snake-container{
+    grid-gap: 1rem;
+    display: grid;
+    background-color:#556B2F;
+    border-style: solid;
+    border-color: #808000;
+    grid-template-rows: 50px 512px 50px; 
+    grid-template-columns: 248px 248px 170px; 
+    grid-template-areas:
+     "header header header"
+     "canvas canvas score" 
+     "buttons buttons buttons" ;
+}
+
+.header-snake{
+    grid-area: header;
+    display: flex;
+    align-self: center;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.header-snake img{
+    margin-top: 35px;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.8rem;
+}
+.header-snake h1{
+    color: rgb(154,205,50);
+    margin-top: 35px;
+    font-size: 40px;
+    -webkit-text-stroke-width: 1px; /* largura da borda */
+    -webkit-text-stroke-color:#808000; /* cor da borda */
+}
+
+.canvas-container{
+    grid-area: canvas;
+    align-self: center;
+    text-align: left;
+}
+
+#snake{
+    border-style: solid;
+    border-color: #808000;
+}
+
+.score-container{
+    grid-area: score;
+    justify-self: center;
+}
+
+fieldset{
+    height: 65px;
+    border-radius: 0.5rem;
+}
+
+legend{
+    color: rgb(154,205,50);
+    -webkit-text-stroke-width: 0.5px; /* largura da borda */
+    -webkit-text-stroke-color:#808000; /* cor da borda */
+}
+
+#score{
+    background-color: YellowGreen;
+    width: 120px;
+    height: 50px;
+    color: white;
+    font-size:40px;
+    text-align: center;
+    border-radius: 0.5rem;
+    /*margin-top: 10px;*/   
+}
+
+.buttons-container {
+    grid-area: buttons;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2.4rem;
+    top: 0;
+    padding: 0;
+}
+.button{
+    background-color: Olive;
+    font-family: 'Balsamiq Sans';
+    font-size: 20px;
+    margin: 0;
+    width: 150px;
+    height: 40px;
+    border-radius: 0.5rem;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+#btnovoJogo{
+    position: absolute;
+    right: 570px;
+}
+#btpausar{
+    position: absolute;
+    left: 400px;
+}

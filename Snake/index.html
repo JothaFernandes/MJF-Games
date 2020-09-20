@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Jogos</title>
+    <link rel="stylesheet" href="estilo/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <link rel="icon" type="imagem/png" href="images/Snake-icon.png" />
+</head>
+<body>
+    <main>
+        <header id="header-page">
+            <h1>Jogos Em Desenvolvimento</h1>
+        </header>
+        
+        <div class="container">
+            <h2>Snake Game</h1>
+            <div id="snakeGame"  class="snake-container">
+                <div id="headersnake" class="header-snake">
+                <img src="images/Snake-icon.png">
+                <h1>SNAKE GAME!</h1>
+                </div>
+                <div id="canvas" class="canvas-container">
+                    <canvas id="snake" width="512" height="512" ></canvas>
+                </div>
+                <fieldset id="snake-score" class="score-container">
+                    <legend>Pontuação</legend>
+                    <div id="score">0</div>
+                </fieldset>
+                <div id="buttons" class="buttons-container" > 
+                    <button type="button" onClick="pausa()" id="btpausar" class="button">Iniciar</button>
+                    <button type="button" onClick="novoJogo()" id="btnovoJogo" class="button">Novo Jogo</button>
+                </div>
+            </div>
+        </div>
+        
+        <article>
+            <h2>Dino Game</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni alias iure distinctio esse eum, modi officia tempore obcaecati, dolorum at et cumque aut animi a ullam nisi perferendis maxime explicabo.</p>
+        </article>
+    </main>
+    
+</body>
+</html>
