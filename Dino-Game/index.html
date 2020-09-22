@@ -2,17 +2,23 @@
 <html lang="pt-br" >
     <head>
         <meta charset="utf-8">
-        <title>Dio Dino Game</title>
+        <title>Dino Game</title>
         <link rel="stylesheet" href="style.css"></link>
         <script src="script.js" charset="utf-8" defer ></script>
     </head>
     <body>
-        <div class="score">
-            <h2 id="score">0</h2>
-        </div>
-        <div class="fim"></div>
-        <div class="background">
-            <div class="dino"></div>
+        <div class="container">
+            <div id="headerdino" class="header-dino">
+                <img src="imagens/dino-game.png">
+            </div>
+            <fieldset id="dino-score" class="score-container">
+                <legend>SCORE</legend>
+                <div id="score">0</div>
+            </fieldset>
+                <div class="fim"></div>
+                <div class="background">
+                    <div class="dino"></div>
+                </div>
         </div>
     </body>
 </html>

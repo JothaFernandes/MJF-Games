@@ -1,0 +1,86 @@
+body{
+    background:  #2F4F4F;
+}
+
+.container{
+    background-color: white;
+    width: 900px;
+    height: 620px;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
+}
+.dino{
+    width: 60px;
+    height: 60px;
+    background-image: url(imagens/dino.png);
+    position: absolute;
+    bottom: 10px;
+}
+
+.cactus{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    bottom: 0;
+    background-image: url(imagens/cactus.png);
+}
+
+.game-over{
+    width: 900px;
+    height: 620px;
+    margin: auto;
+    padding: 0;
+    align-items: center;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
+    background-image: url(imagens/game-over.png);
+}
+
+@keyframes slideright{
+    from {
+        background-position: 70000%;
+    }
+    to {
+        background-position: 0;
+    }
+}
+
+.background{
+    position: absolute;
+    bottom: 10px;
+    background-image: url(imagens/background.png);
+    background-repeat: repeat-x;
+    animation: slideright 600s infinite linear;
+    width: 900px;
+    height: 200px;
+}
+
+
+fieldset{
+    width: 120px;
+    height: 45px;
+    border-radius: 0.5rem;
+    align-items: center;
+    top: 0;
+    padding: 0;
+    position: relative;
+}
+
+legend{
+    color:#4F4F4F;
+    -webkit-text-stroke-width: 0.5px; /* largura da borda */
+    -webkit-text-stroke-color:#808000; /* cor da borda */
+}
+
+
+#score{
+    background-color:white;
+    width: 120px;
+    height: 20px;
+    color: #4F4F4F;
+    font-size:25px;
+    text-align: center;
+    border-radius: 0.5rem;
+    top: 0; 
+}
