@@ -4,12 +4,25 @@
         <meta charset="utf-8">
         <title>Dino Game</title>
         <link rel="stylesheet" href="style.css"></link>
+        <link rel="stylesheet" href="../estilo/style.css"></link>
         <script src="script.js" charset="utf-8" defer ></script>
+        <script defer src="../script.js"></script>
     </head>
     <body>
+        <header id="header-page">
+                <img src="../images/logo-header.png" alt="">
+            <nav id="menu">
+                <a class="" href="../index.html">Home</a>
+                <a class="ativo" href="#jogos">Jogos</a>
+                <a href="#contato">Contato</a>
+                <a href="#sobre">Sobre</a>
+            </nav>
+            <a href="javascript:void(0);" class="btnMenu" onclick="controleMenu()">
+                <img src="../images/menu-icon.png" >
+            </a>
+        </header>
         <div class="container">
-            <div id="headerdino" class="header-dino">
-                <img src="imagens/dino-game.png">
+            <div id="headerdino" class="header-dino" >
             </div>
             <fieldset id="dino-score" class="score-container">
                 <legend>SCORE</legend>

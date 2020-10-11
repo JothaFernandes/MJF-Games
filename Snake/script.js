@@ -17,7 +17,7 @@ var intervalo;
 let direction = "right";
 var score;
 var gameover = new Image();
-gameover.src = 'game_Over.png';
+gameover.src = 'images/game_Over.png';
 
 novoJogo();
 

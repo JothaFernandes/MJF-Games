@@ -3,32 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Jogos</title>
+    <title>M.JF Games</title>
     <link rel="stylesheet" href="estilo/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
-    <link rel="icon" type="imagem/png" href="Snake/images/Snake-icon.png" />
+    <link rel="icon" type="imagem/png"  href="images/mjf-icon.png" />
 </head>
 <body>
-    <main>
-        <header id="header-page">
-            <h1>Jogos em Desenvolvimento</h1>
-        </header>
-        <article>
-            <h2>Snake Game</h2>
-            <p>Jogo snake game desenvolvido em HTML e Javascript. Clique na imagem, jogue e divirta-se.</p>
-            <a href="Snake/index.html">
-                <img src="images/snake.png" alt="">
-            </a>
+    <header id="header-page">
+            <img src="images/logo-header.png" alt="">
+        <nav id="menu">
+            <a class="ativo" href="#home">Home</a>
+            <a href="#jogos">Jogos</a>
+            <a href="#contato">Contato</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+        <a href="javascript:void(0);" class="btnMenu" onclick="controleMenu()">
+            <img src="images/menu-icon.png" >
+        </a>
+    </header>
+    <section class="conteiner">
+        <section class="slideshow-conteiner">
+        <div class="slidebox fade" >
+            <img src="images/logo-header.png" class="imgslide" style="width:100%">
+            <div class="txtslide">M.JF Games</div>
+        </div>
+        <div class="slidebox fade" >
+            <img src="images/snake.png" class="imgslide" style="width:100%">
+            <div class="txtslide">Snake Game</div>
+        </div>
+        <div class="slidebox fade" >
+            <img src="images/dino-game.png" class="imgslide" style="width:100%">
+            <div class="txtslide">Dino Game</div>
+        </div>
+
+        <a class="btnAnterior" onclick="mudarSlide(-1)">&lsaquo;</a>
+        <a class="btnProximo" onclick="mudarSlide(1)">&rsaquo;</a>
+
+        <div class="indicadores" style="text-align: center">
+        <span class="indicador" onclick="slideAtual(1)"></span>
+        <span class="indicador" onclick="slideAtual(2)"></span>
+        <span class="indicador" onclick="slideAtual(3)"></span>
+        </div>
+    </section>
+    <section class="linhaCartao">
+        <section class="colunaCartao">
+            <div class="cartao">
+                <img src="images/snake.png" class="min">
+        <article class="textoCartao"> 
+            <h2 class="titulo">Snake Game</h2>  
+            <p>Jogo Snake Game e inspirado no jogo presente no celuares dos anos 2000. Foi desenvolvido em HTML e Javascript.</p>
+            <p>Jogue e divirta-se.</p>
+            <p><button class="botao"><a class="botao" href="Snake/index.html">Jogar</a></button></p>
         </article>
+            </div>
+        </section>
+        <section class="colunaCartao">
+            <div class="cartao">
+                <img src="images/dino-game.png" class="min">
+        <article class="textoCartao"> 
+            <h2 class="titulo">Dino Game</h2>  
+            <p>O jogo Dino Game é um jogo que simula o jogo do Google quando a página esta offline. Foi desenvolvido em HTML e Javascript.</p>
+            <p>Jogue e divirta-se.</p>
+            <p><button class="botao"><a class="botao" href="Dino-Game/index.html">Jogar</a></button></p>
+        </article>
+            </div>
+        </section>
+    </section>
+           <!--</li>
+           <li>
         <article>
             <h2>Dino Game</h2>
-            <p>O jogo Dino Game é um jogo que simula o jogo do Google quando a página esta offline. Foi desenvolvido em HTML e Javascript. Clique na imagem, jogue e divirta-se.</p>
             <a href="Dino-Game/index.html">
-                <img src="images/dino-game.png" alt="">
+                
             </a>
+            <p>O jogo Dino Game é um jogo que simula o jogo do Google quando a página esta offline. Foi desenvolvido em HTML e Javascript. Clique na imagem, jogue e divirta-se.</p>
         </article>
-    </main>
+           </li>
+           <li>
+            <article>
+                <h2>Snake Game</h2>
+                <a href="Snake/index.html">
+                    <img src="images/snake.png" class="min">
+                </a>
+                <p>Jogo snake game desenvolvido em HTML e Javascript. Clique na imagem, jogue e divirta-se.</p>
+            </article>
+               </li>
+           <li>
+            <article>
+                <h2>Dino Game</h2>
+                <a href="Dino-Game/index.html">
+                    <img src="images/dino-game.png" class="min">
+                </a>
+                <p>O jogo Dino Game é um jogo que simula o jogo do Google quando a página esta offline. Foi desenvolvido em HTML e Javascript. Clique na imagem, jogue e divirta-se.</p>
+            </article>
+           </li> -->
+    </section>
     
 </body>
 </html>
