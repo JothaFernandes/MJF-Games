@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Jogos</title>
+    <title>Snake Game</title>
     <link rel="stylesheet" href="estilo/style.css">
+    <link rel="stylesheet" href="../estilo/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
-    <link rel="icon" type="imagem/png" href="images/Snake-icon.png" />
+    <script defer src="../script.js"></script>
+    <link rel="icon" type="imagem/svg"  href="../images/mjf-icon.svg" />
 </head>
 <body>
-    <main>
+    <header id="header-page">
+            <img src="../images/mjf-logo.svg" alt="">
+        <nav id="menu">
+            <a href="../index.html">Home</a>
+            <a class="ativo" href="../index.html#jogos">Jogos</a>
+            <a href="../index.html#contato">Contato</a>
+            <a href="../index.html#sobre">Sobre</a>
+        </nav>
+        <div class="btnMenu" >
+            <div class="btnMenu_burger"></div>
+        </div>
+    </header>
+    <section class="home">
         <div class="container">
             <div id="snakeGame"  class="snake-container">
                 <div id="headersnake" class="header-snake">
@@ -30,6 +44,6 @@
                 </div>
             </div>
         </div>
-    </main>  
+    </section>  
 </body>
 </html>
