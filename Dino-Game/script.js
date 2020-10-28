@@ -4,6 +4,7 @@ var gameOver = document.getElementsByClassName('container');
 let isjumping = false;
 let position = 0;
 let score = 10;
+let cactusinit = 1200;
 let cp = 60;
 let dp = 60;
 
@@ -40,11 +41,11 @@ function jump(){
 
 function createcactus(){
     const cactus = document.createElement('div');
-    let cactusposition = 1200;
+    let cactusposition = cactusinit;
     let randomTime = 900 + Math.floor(Math.random() * 3000);
 
     cactus.classList.add('cactus');
-    cactus.style.left = 1200 + 'px';
+    cactus.style.left = cactusinit; + 'px';
     background.appendChild(cactus);
 
     let leftInterval = setInterval(() => {
@@ -69,12 +70,14 @@ function createcactus(){
 createcactus();
 
 let resizegame = function(){
+    cactusinit = 800;
     dp = 20;
     cp = 20;
 }
 
 document.addEventListener('keydown', handle);
 document.addEventListener('keyup', handle);
+document.addEventListener('click', handle);
 window.addEventListener('resize',function(){
     resizegame();
 })
