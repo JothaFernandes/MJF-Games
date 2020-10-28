@@ -6,7 +6,7 @@ body{
 .container{
     background-color: white;
     max-width: 95%;
-    height: 92vh;
+    height: 100vh;
     margin: 55px auto;
     padding: 0;
     align-items: center;
@@ -104,7 +104,7 @@ legend{
     .container{
         width: 100%;
         display: block;
-        height: 50vh;
+        height: 100vh;
     }
 
     .game-over{
@@ -113,7 +113,7 @@ legend{
         height: 70vh;
     }
 
-    .dino{
+    /*.dino{
         width: 40px;
         height: 40px;
         background-image: url(imagens/dino.png);
@@ -128,5 +128,5 @@ legend{
 
     .background{
         bottom: 150px;
-    }
+    }*/
 }

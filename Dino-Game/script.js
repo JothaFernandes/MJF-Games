@@ -4,10 +4,6 @@ var gameOver = document.getElementsByClassName('container');
 let isjumping = false;
 let position = 0;
 let score = 10;
-let cactusinit = 1200;
-let cp = 60;
-let dp = 60;
-
 
 function handle(event){
     if(event.KeyCode = 32){
@@ -56,7 +52,7 @@ function createcactus(){
             score += 10;
         }else if(cactusposition > 0 && cactusposition < cp && position < dp){
             clearInterval(leftInterval);
-            gameOver[0].innerHTML = '<div class="game-over"></div>';
+            /*gameOver[0].innerHTML = '<div class="game-over"></div>';*/
         }
         else {
         cactusposition -= 10;
