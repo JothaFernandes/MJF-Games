@@ -52,7 +52,7 @@ function createcactus(){
             score += 10;
         }else if(cactusposition > 0 && cactusposition < cp && position < dp){
             clearInterval(leftInterval);
-            /*gameOver[0].innerHTML = '<div class="game-over"></div>';*/
+            gameOver[0].innerHTML = '<div class="game-over"></div>';
         }
         else {
         cactusposition -= 10;
