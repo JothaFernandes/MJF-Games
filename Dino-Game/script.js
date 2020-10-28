@@ -69,15 +69,11 @@ function createcactus(){
 }
 createcactus();
 
-let resizegame = function(){
-    cactusinit = 800;
-    dp = 20;
-    cp = 20;
-}
-
 document.addEventListener('keydown', handle);
 document.addEventListener('keyup', handle);
 document.addEventListener('click', handle);
 window.addEventListener('resize',function(){
-    resizegame();
-})
+    cactusinit = 800;
+    dp = 20;
+    cp = 20;
+});
