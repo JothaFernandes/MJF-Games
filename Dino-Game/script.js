@@ -4,6 +4,10 @@ var gameOver = document.getElementsByClassName('container');
 let isjumping = false;
 let position = 0;
 let score = 10;
+let cactusinit = 1200;
+let cp = 60;
+let dp = 60;
+
 
 function handle(event){
     if(event.KeyCode = 32){
