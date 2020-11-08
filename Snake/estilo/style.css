@@ -210,20 +210,20 @@ legend{
     
     .control-mobile .left{
         background-image: url(../imagens/left.png);
-        left: 0;
+        left: 15%;
         top: 15%;
         border-radius: 0 5px 5px 0;
     }
     
     .control-mobile .right{
         background-image: url(../imagens/right.png);
-        right: -86%;
-        top: -6%;
+        right: -72%;
+        top: -7%;
         border-radius: 5px 0 0 5px;
     }
     .control-mobile .down{
         background-image: url(../imagens/down.png);
-        bottom: -15%;
+        bottom: -5%;
         left: 45%;
         border-radius: 5px 0 0 5px;
     }
