@@ -1,32 +1,30 @@
 body{
     overflow: hidden;
-    background:  #2F4F4F;
+    background:  #556B2F;
 }
 
 .container{
     background-color: white;
     max-width: 95%;
-    height: 92vh;
-    margin: 55px auto;
+    height: 100vh;
+    margin: 50px auto 0px;
     padding: 0;
-    align-items: center;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
 }
 
 .header-dino{
     max-width: 100%;
     height: 100px;
-    background-image: url(imagens/dino-game.png);
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url(imagens/dino-game.png) center no-repeat; 
 }
 
 .dino{
     width: 60px;
     height: 60px;
+    left: 5px;
     background-image: url(imagens/dino.png);
     position: absolute;
-    bottom: 10px;
+    bottom: 6px;
 }
 
 .cactus{
@@ -37,24 +35,11 @@ body{
     background-image: url(imagens/cactus.png);
 }
 
-.game-over{
-    max-width: 100%;
-    height: 92vh;
-    margin: auto;
-    padding: 0;
-    align-items: center;
-    box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
-    background-image: url(imagens/game-over.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #fff;
-}
-
 @keyframes slideright{
-    from {
+    0% {
         background-position: 70000%;
     }
-    to {
+    100% {
         background-position: 0;
     }
 }
@@ -67,6 +52,39 @@ body{
     animation: slideright 600s infinite linear;
     width: 95%;
     height: 200px;
+}
+
+.game-over{
+    top: 50%;
+    text-align: center;
+    width: 95%;
+    z-index: 99;
+    position: absolute;
+}
+.btnNovo{
+    border: none;
+    outline: 0;
+    display: inline-block;
+    color:#fff;
+    background-color: #6B8E23;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    width: 200px;
+    height: 2.4rem;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
+}
+.btnNovo:hover{
+    background-color:#9ACD32;
+}
+
+.over{
+    color: DimGray;
+    font-family: 'snap itc';
+    font-size: 40px;
+    
 }
 
 
@@ -99,34 +117,28 @@ legend{
 }
 
 
+@media screen and (max-width: 400px){
 
-@media screen and (max-width: 1000px){
-    .container{
-        width: 100%;
-        display: block;
-        height: 50vh;
-    }
-
-    .game-over{
-        width: 100%;
+    .header-dino{
+        height: 60px;
         background-size: cover;
-        height: 70vh;
     }
-
     .dino{
-        width: 40px;
-        height: 40px;
-        background-image: url(imagens/dino.png);
-        background-size: cover;
-    }
-    
-    .cactus{
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
         background-size: cover;
     }
 
-    .background{
-        bottom: 150px;
+    .cactus{
+        width: 60px;
+        height: 60px;
+        background-size: cover;
     }
+
+    .btnNovo{
+        width: 50%;
+        height: 2rem;
+    }
+
+    
 }
