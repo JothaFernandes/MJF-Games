@@ -87,7 +87,6 @@ body{
     
 }
 
-
 fieldset{
     width: 120px;
     height: 45px;
@@ -103,7 +102,6 @@ legend{
     -webkit-text-stroke-width: 0.5px; /* largura da borda */
     -webkit-text-stroke-color:#808000; /* cor da borda */
 }
-
 
 #score{
     background-color:white;
@@ -139,6 +137,4 @@ legend{
         width: 50%;
         height: 2rem;
     }
-
-    
 }
