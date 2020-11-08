@@ -7,7 +7,6 @@ body{
     background-color: white;
     max-width: 95%;
     height: 100vh;
-    margin: 55px auto;
     margin: 50px auto 0px;
     padding: 0;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
@@ -116,23 +115,7 @@ legend{
 }
 
 
-@media screen and (max-width: 1000px){
-    .container{
-        width: 100%;
-        display: block;
-        height: 100vh;
-    }
-
-    .game-over{
-        width: 100%;
-        background-size: cover;
-        height: 100vh;
-    }
-
-    /*.dino{
-        width: 40px;
-        height: 40px;
-        background-image: url(imagens/dino.png);
+@media screen and (max-width: 400px){
 
     .header-dino{
         height: 60px;
@@ -149,10 +132,6 @@ legend{
         height: 60px;
         background-size: cover;
     }
-
-    .background{
-        bottom: 150px;
-    }*/
 
     .btnNovo{
         width: 50%;
