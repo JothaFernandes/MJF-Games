@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snake Game</title>
     <link rel="stylesheet" href="estilo/style.css">
-    <link rel="stylesheet" href="../estilo/style.css">
+    <link rel="stylesheet" href="../estilo/header-menu.css">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
-    <script defer src="../script.js"></script>
-    <link rel="icon" type="imagem/svg"  href="../images/mjf-icon.svg" />
+    <script defer src="../header.js"></script>
+    <link rel="icon" type="imagem/svg"  href="../imagens/mjf-icon.svg" />
 </head>
 <body>
     <header id="header-page">
-            <img src="../images/mjf-logo.svg" alt="">
+            <img src="../imagens/mjf-logo.svg" alt="">
         <nav id="menu">
             <a href="../index.html">Home</a>
             <a class="ativo" href="../index.html#jogos">Jogos</a>
@@ -28,19 +28,25 @@
         <div class="container">
             <div id="snakeGame"  class="snake-container">
                 <div id="headersnake" class="header-snake">
-                <img src="images/Snake-icon.png">
+                <img src="imagens/Snake-icon.png">
                 <h1>SNAKE GAME!</h1>
                 </div>
                 <div id="canvas" class="canvas-container">
                     <canvas id="snake" width="512" height="512" ></canvas>
                 </div>
                 <fieldset id="snake-score" class="score-container">
-                    <legend>Pontuação</legend>
+                    <legend>Score</legend>
                     <div id="score">0</div>
                 </fieldset>
                 <div id="buttons" class="buttons-container" > 
                     <button type="button" onClick="pausa()" id="btpausar" class="button">Iniciar</button>
                     <button type="button" onClick="novoJogo()" id="btnovoJogo" class="button">Novo Jogo</button>
+                </div>
+                <div class="control-mobile">
+                    <div class="up"></div>
+                    <div class="left"></div>
+                    <div class="right"></div>
+                    <div class="down"></div>
                 </div>
             </div>
         </div>

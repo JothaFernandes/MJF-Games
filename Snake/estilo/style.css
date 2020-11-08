@@ -42,8 +42,8 @@ canvas{
     background-color:#556B2F;
     border-style: solid;
     border-color: #808000;
-    grid-template-rows: 4rem 18rem 18rem; 
-    grid-template-columns: 18rem 18rem 10rem; 
+    grid-template-rows: 3.5rem 18rem 15rem; 
+    grid-template-columns: 18rem 16rem 10rem; 
     grid-template-areas:
      "header header header"
      "canvas canvas score" 
@@ -55,21 +55,20 @@ canvas{
     display: flex;
     text-align: center;
     justify-content: center;
-
 }
 
 .header-snake img{
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     width: 3rem;
     height: 3rem;
     margin-right: 0.8rem;
 }
 .header-snake h1{
     color: rgb(154,205,50);
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     font-size: 2.5rem;
     font-weight: bold;
-    -webkit-text-stroke-width: 1px; /* largura da borda */
+    -webkit-text-stroke-width: 0.5px; /* largura da borda */
     -webkit-text-stroke-color:#808000; /* cor da borda */
 }
 
@@ -91,9 +90,11 @@ fieldset{
     width: 95%;
     height: 4rem;
     border-radius: 0.5rem;
+    text-align: center;
 }
 
 legend{
+    font-size: 1.4rem;
     color: rgb(154,205,50);
     -webkit-text-stroke-width: 0.5px; /* largura da borda */
     -webkit-text-stroke-color:#808000; /* cor da borda */
@@ -102,9 +103,9 @@ legend{
 #score{
     background-color: YellowGreen;
     width: 100%;
-    height: 2.5rem;
+    height: 2rem;
     color: #fff;
-    font-size:2rem;
+    font-size:1.8rem;
     text-align: center;
     border-radius: 0.5rem;  
 }
@@ -112,12 +113,8 @@ legend{
 .buttons-container {
     width: 95%;
     grid-area: buttons;
-    display: block;
-    justify-content: center;
+    display: inline-block;
     align-self: center;
-    margin-right: 2.4rem;
-    top: 0;
-    padding: 0;
 }
 .button{
     background-color:#808000;
@@ -134,29 +131,106 @@ legend{
 }
 
 .button:hover{
-    background-color:#32CD32;
+    background-color:rgba(173,255,47);
+}
+
+.control-mobile{
+    display: none;
 }
 
 @media screen and (max-width: 750px){
     .snake-container{
         width: 100%;
-        height: 100vh;
         display: block;
+        height: 98vh;
+    }
+
+    .header-snake{
+        text-align: start;
+        justify-content: start;
+    }
+
+    .header-snake img{
+        margin-top: 0.4rem;
+        width: 2rem;
+        height: 2rem;
+        margin-left: 0;   
     }
 
     .header-snake h1{
-        font-size: 2rem;
+        font-size: 1.6rem;
+        margin-top: 0.4rem;
     }
 
     fieldset{
-        margin-bottom: 5px;
+        position: absolute;
+        right: 1rem;
+        width: 25%;
+        height: 2.6rem;
+        top: 58px;
+    }
+    legend{
+        font-size: 1rem;
     }
 
     #score{
-        font-size:1.8rem;
+        height: 1.2rem;
+        font-size:1rem;
+    }
+
+    .buttons-container {
+        width: 100%;
+        display: flex;
+        padding: 0px 5px 0px;; 
     }
 
     .button{
+        width: 50%;
         margin-bottom: 5px;
+        margin-right: 5px;
+    }
+
+    .control-mobile{
+        display: block;
+        width: 100%;
+        height: 30%;
+    }
+
+    .left, .right, .up, .down{
+        cursor: pointer;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 30px;
+        transition: 0.4s ease-in-out;
+        user-select: none;
+    }
+    
+    .control-mobile .left{
+        background-image: url(../imagens/left.png);
+        left: 0;
+        top: 15%;
+        border-radius: 0 5px 5px 0;
+    }
+    
+    .control-mobile .right{
+        background-image: url(../imagens/right.png);
+        right: -86%;
+        top: -6%;
+        border-radius: 5px 0 0 5px;
+    }
+    .control-mobile .down{
+        background-image: url(../imagens/down.png);
+        bottom: -15%;
+        left: 45%;
+        border-radius: 5px 0 0 5px;
+    }
+    .control-mobile .up{
+        background-image: url(../imagens/up.png);
+        margin-top: 0;
+        left: 45%;
+        border-radius: 5px 0 0 5px;
     }
 }
