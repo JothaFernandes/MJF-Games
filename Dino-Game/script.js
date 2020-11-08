@@ -37,7 +37,6 @@ function jump(){
     }, 20);
 }
 
-
 function createcactus(){
     const cactus = document.createElement('div');
     let cactusposition = cactusinit;
@@ -79,9 +78,7 @@ function novojogo(){
 
 document.addEventListener('keydown', handle);
 document.addEventListener('keyup', handle);
-<<<<<<< HEAD
 document.addEventListener('click', handle);
-=======
 background.addEventListener('touchstart', handle);
 /*window.addEventListener('resize',function(){
     timeMobile = 200;
@@ -95,6 +92,3 @@ function sizeOfThings(){
     
     var screenWidth = screen.width;
     var screenHeight = screen.height;}*/
-
-
->>>>>>> updateset
