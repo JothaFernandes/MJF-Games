@@ -37,7 +37,6 @@ function jump(){
     }, 20);
 }
 
-
 function createcactus(){
     const cactus = document.createElement('div');
     let cactusposition = cactusinit;
