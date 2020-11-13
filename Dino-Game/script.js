@@ -83,3 +83,5 @@ function novojogo(){
 document.addEventListener('keydown', handle);
 document.addEventListener('keyup', handle);
 background.addEventListener('touchstart', handle,{ passive: true});
+document.addEventListener('click', handle);
+background.addEventListener('touchstart', handle);

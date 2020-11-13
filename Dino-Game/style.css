@@ -63,7 +63,7 @@ body{
 }
 
 .background{
-    overflow: hidden;
+   overflow: hidden;
     position: absolute;
     bottom: 10px;
     background-image: url(imagens/background.png);
