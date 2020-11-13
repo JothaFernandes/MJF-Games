@@ -41,7 +41,6 @@ function createcactus(){
     let cactusposition = cactusinit;
     let randomTime = 600 + Math.floor(Math.random() * 1000);
     let rando = Math.floor(Math.random()*2);
-    console.log(rando);
     if(rando == 0){
         cactus.classList.add('cactus');
     } else {
@@ -83,5 +82,4 @@ function novojogo(){
 document.addEventListener('keydown', handle);
 document.addEventListener('keyup', handle);
 background.addEventListener('touchstart', handle,{ passive: true});
-document.addEventListener('click', handle);
-background.addEventListener('touchstart', handle);
+
