@@ -124,17 +124,13 @@ var right = document.querySelector('.right');
 var down = document.querySelector('.down');
 up.addEventListener('touchstart',function(){ 
     direction = "up";
-    console.log(direction);
       });
 left.addEventListener('touchstart',function(){ 
     direction = "left";
-    console.log(direction);
       });
 right.addEventListener('touchstart',function(){ 
     direction = "right";
-    console.log(direction);
       });
 down.addEventListener('touchstart',function(){ 
     direction = "down";
-    console.log(direction);
      });

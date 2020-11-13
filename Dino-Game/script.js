@@ -4,9 +4,8 @@ var gameOver = document.getElementsByClassName('game-over');
 let isjumping = false;
 let position = 0;
 let score = 10;
-var over = false;
-let timeMobile = 800;
-let cactusinit = 1150;
+var end = false;
+let cactusinit = screen.width;
 
 function handle(event){
     if(event.KeyCode = 32){
@@ -40,14 +39,19 @@ function jump(){
 function createcactus(){
     const cactus = document.createElement('div');
     let cactusposition = cactusinit;
-    let randomTime = timeMobile + Math.floor(Math.random() * 3000);
-
-    cactus.classList.add('cactus');
+    let randomTime = 600 + Math.floor(Math.random() * 1000);
+    let rando = Math.floor(Math.random()*2);
+    console.log(rando);
+    if(rando == 0){
+        cactus.classList.add('cactus');
+    } else {
+        cactus.classList.add('cactus1');
+    }
     cactus.style.left = cactusinit + 'px';
     background.appendChild(cactus);
 
     let leftInterval = setInterval(() => {
-        if (over != true){
+        if (end != true){
             if(cactusposition < 0){
                 clearInterval(leftInterval);
                 background.removeChild(cactus);
@@ -55,7 +59,7 @@ function createcactus(){
                 score += 10;
             }else if(cactusposition > 0 && cactusposition < 60 && position < 60){
                 clearTimeout(jogo);
-                over = true;
+                end = true;
             } else {
                 cactusposition -= 10;
                 cactus.style.left = cactusposition + 'px';
@@ -66,7 +70,7 @@ function createcactus(){
             isjumping = true;
             gameOver[0].innerHTML = '<button class="btnNovo" onclick="novojogo()">Novo Jogo</button> <h1 class="over">Game Over</h1>';
         }
-    }, 20);
+    }, 30);
 
     jogo = setTimeout(createcactus,randomTime);
 }
@@ -78,18 +82,4 @@ function novojogo(){
 
 document.addEventListener('keydown', handle);
 document.addEventListener('keyup', handle);
-background.addEventListener('touchstart', handle);
-/*window.addEventListener('resize',function(){
-    timeMobile = 200;
-    cactusinit = 400;
-    dinodead = 40;   
-});
-
-function sizeOfThings(){
-    var windowWidth = window.innerWidth;
-    var windowHeight = window.innerHeight;
-    
-    var screenWidth = screen.width;
-    var screenHeight = screen.height;}*/
-
-
+background.addEventListener('touchstart', handle,{ passive: true});
