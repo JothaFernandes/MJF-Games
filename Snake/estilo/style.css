@@ -195,46 +195,55 @@ legend{
     }
 
     .control-mobile{
-        display: block;
-        width: 100%;
+        display: grid;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns:repeat(2, 1fr);
+        grid-template-areas: 
+        "_up _up"
+        "_left _right"
+        "_down _down";
         height: 30%;
     }
 
     .left, .right, .up, .down{
         cursor: pointer;
         position: relative;
-        width: 40px;
-        height: 40px;
+        width: 60px;
+        height: 60px;
         color: #fff;
         font-weight: bold;
         font-size: 30px;
         transition: 0.4s ease-in-out;
         user-select: none;
+        background-size: cover;
     }
     
     .control-mobile .left{
-        background-image: url(../imagens/left.png);
-        left: 15%;
-        top: 15%;
+        grid-area: _left;
+        background-image: url(imagens/left.png);
+        left: 20%;
         border-radius: 0 5px 5px 0;
     }
     
     .control-mobile .right{
-        background-image: url(../imagens/right.png);
-        right: -72%;
-        top: -7%;
+        grid-area: _right;
+        background-image: url(imagens/right.png);
+        right: -40%;
+        
         border-radius: 5px 0 0 5px;
     }
     .control-mobile .down{
-        background-image: url(../imagens/down.png);
+        grid-area: _down;
+        background-image: url(imagens/down.png);
         bottom: -6%;
-        left: 45%;
+        left: 40%;
         border-radius: 5px 0 0 5px;
     }
     .control-mobile .up{
-        background-image: url(../imagens/up.png);
+        grid-area: _up;
+        background-image: url(imagens/up.png);
         margin-top: 8px;
-        left: 45%;
+        left: 40%;
         border-radius: 5px 0 0 5px;
     }
 }
