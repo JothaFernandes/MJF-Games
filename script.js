@@ -12,8 +12,8 @@ function slideAtual(ns){
     mostrarSlide(numSlide = ns);
 }
 function mostrarSlide(ns){
-    var slides = document.getElementsByClassName('slidebox');
-    var indicadores = document.getElementsByClassName('indicador');
+   var slides = document.getElementsByClassName('carousel-item');
+    var indicadores = document.getElementsByClassName('indicator');
     if(ns > slides.length){
         numSlide = 1;
     }
