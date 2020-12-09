@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M.JF Games</title>
-    <link rel="stylesheet" href="estilo/style.css">
-    <link rel="stylesheet" href="estilo/header-menu.css">
+    <link rel="stylesheet" href="css/header-menu.css">
+    <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script defer src="script.js"></script>
+    <script defer src="header.js"></script>
     <link rel="icon" type="imagem/png"  href="imagens/mjf-icon.svg" />
 </head>
 <body>
@@ -23,73 +24,285 @@
             <div class="btnMenu_burger"></div>
         </div>
     </header>
-    <section id="home" class="sec-container">
-        <section class="slideshow-conteiner">
-            <div class="slidebox fade" >
-                <img src="imagens/mjf-logo.svg" class="imgslide" style="width:100%">
-                <div class="txtslide">M.JF Games</div>
-            </div>
-            <div class="slidebox fade" >
-                <img src="imagens/snake.png" class="imgslide" style="width:100%">
-                <div class="txtslide">Snake Game</div>
-            </div>
-            <div class="slidebox fade" >
-                <img src="imagens/dinogame.png" class="imgslide" style="width:100%">
-                <div class="txtslide">Dino Game</div>
-            </div>
-
-            <a class="btnAnterior" onclick="mudarSlide(-1)">&lsaquo;</a>
-            <a class="btnProximo" onclick="mudarSlide(1)">&rsaquo;</a>
-
-            <div class="indicadores" style="text-align: center">
-            <span class="indicador" onclick="slideAtual(1)"></span>
-            <span class="indicador" onclick="slideAtual(2)"></span>
-            <span class="indicador" onclick="slideAtual(3)"></span>
-            </div>
-        </section>
-        <section class="row-card">
-            <section class="column-card">
-                <div class="card" style="background-image: url('imagens/snake-min.png')" >
-                    <article class="txtCard"> 
-                        <h2 class="titulo">Snake Game</h2>  
-                        <p>O jogo Snake Game é um jogo que simula o jogo presente no celuares dos anos 2000.</p>
-                        <p>Jogue e divirta-se.</p>
-                        <p class="pbutton"><a class="botao" href="Snake/index.html">Jogar</a></p>
-                    </article>
+    <main id="home">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item fade " >
+                    <picture>
+                        <source media="(max-width: 799px)" srcset="imagens/mjf-logo-mobile.svg">
+                        <source media="(min-width: 800px)" srcset="imagens/mjf-logo.svg">
+                        <img src="imagens/mjf-logo.svg" alt="">
+                    </picture>
+                    <div class="carousel-caption">
+                        <h1>MJF Games</h1> 
+                    </div>
                 </div>
-            </section>
-            <section class="column-card">
-                <div class="card" style="background-image: url('imagens/dino-game-min.png')" >
-                    <article class="txtCard"> 
-                        <h2 class="titulo">Dino Game</h2>  
-                        <p>O jogo Dino Game é um jogo que simula o jogo do Google quando a página esta offline.</p>
-                        <p>Jogue e divirta-se.</p>
-                        <p class="pbutton"><a class="botao" href="Dino-Game/index.html">Jogar</a></p>
-                    </article>
+                <div class="carousel-item fade" >
+                    <picture>
+                        <source media="(max-width: 799px)" srcset="imagens/snake-mobile-carousel.png">
+                        <source media="(min-width: 800px)" srcset="imagens/snake.png">
+                        <img src="imagens/snake.png" alt="">
+                    </picture>
+                    <div class="carousel-caption">
+                        <h1>Snake Game</h1>
+                    </div>
                 </div>
-            </section>
-        </section>
-    </section>
-    <section id="jogos" >
-        <div class="sec-container" style="background-image: url('imagens/mjf-logo.svg')" >
-            <div class="txt"><h1>Página jogos em Construção</h1></div>
+                <div class="carousel-item fade" >
+                    <picture>
+                        <source media="(max-width: 799px)" srcset="imagens/dinogame360.png">
+                        <source media="(min-width: 800px)" srcset="imagens/dinogame.png">
+                        <img src="imagens/dinogame.png" alt="">
+                    </picture>
+                    <div class="carousel-caption">
+                        <h1>Dino Game</h1>
+                    </div>
+                </div>
+                <div class="carousel-item fade " >
+                    <picture>
+                        <source media="(max-width: 799px)" srcset="imagens/velha-mobile.png">
+                        <source media="(min-width: 800px)" srcset="imagens/jogovelha.png">
+                        <img src="imagens/mjf-logo.svg" alt="">
+                    </picture>
+                    <div class="carousel-caption">
+                        <h1>Joga da velha</h1> 
+                    </div>
+                </div>
+            </div>
+             <a class="carousel-control-prev" id="prev" onclick="mudarSlide(-1)">&lsaquo;</a>
+             <a class="carousel-control-next" id="next"  onclick="mudarSlide(1)">&rsaquo;</a>
+             <ol class="carousel-indicators">
+                <li class="indicator" op-index="0"  onclick="slideAtual(1)"></li>
+                <li class="indicator" op-index="1" onclick="slideAtual(2)"></li>
+                <li class="indicator" op-index="2" onclick="slideAtual(3)"></li>
+                <li class="indicator" op-index="2" onclick="slideAtual(4)"></li>
+            </ol> 
         </div>
-    </section>
-    <section id="contato" >
-        <div class="sec-container" style="background-image: url('imagens/mjf-logo.svg')" >
-            <div class="txt"><h1>Página Contato em Construção</h1></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-card ">
+                    <div class="card">
+                    <img width="100%" height="225" src="imagens/snake-min.png">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <h2 class="card-title">Snake Game</h2>  
+                            <p>O jogo Snake Game é um jogo que simula o jogo presente no celuares dos anos 2000.</p>
+                            <p>Jogue e divirta-se.</p>
+                        </div>
+                        <div class="btnGroup">
+                            <a class="btn btn-primary" href="Snake/index.html">Jogar</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                    <img width="100%" height="225" src="imagens/dinogame360.png">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <h2 class="card-title">Dino Game</h2>  
+                            <p>O jogo Dino Game simula o jogo do Google quando a página esta offline.</p>
+                            <p>Jogue e divirta-se.</p>
+                        </div>
+                        <div class="btnGroup">
+                            <a class="btn btn-primary" href="Dino-Game/index.html">Jogar</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                    <img width="100%" height="225" src="imagens/jogo-velha.png">
+                    <div class="card-body">
+                        <div class="card-text">
+                            <h2 class="card-title">Jogo da Velha</h2>  
+                            <p>O jogo da velha é um jogo fácil de jogar e bem divertido.</p>
+                            <p>Jogue e divirta-se.</p>
+                        </div>
+                        <div class="btnGroup">
+                            <a class="btn btn-primary" href="">Jogar</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </section>
-    <section id="sobre" >
-        <div class="sec-container" style="background-image: url('imagens/mjf-logo.svg')" >
-            <article class="txtCard"> 
-                <h2 class="titulo">Sobre</h2>  
+    </main>
+    <!--<section id="jogos" >
+        <div class="container">
+            <div class="row">
+                <div class="col-card ">
+                    <div class="card">
+                        <img width="100%" height="225" src="imagens/mjf-logo-mobile.svg">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h2 class="card-title">MJF Games</h2>  
+                                <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
+                                Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
+                            </div>
+                            <div class="btnGroup">
+                                <a class="btn btn-primary" href="">Jogar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                        <img width="100%" height="225" src="imagens/mjf-logo-mobile.svg">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h2 class="card-title">MJF Games</h2>  
+                                <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
+                                Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
+                            </div>
+                            <div class="btnGroup">
+                                <a class="btn btn-primary" href="">Jogar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                        <img width="100%" height="225" src="imagens/mjf-logo-mobile.svg">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h2 class="card-title">MJF Games</h2>  
+                                <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
+                                Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
+                            </div>
+                            <div class="btnGroup">
+                                <a class="btn btn-primary" href="">Jogar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                        <img width="100%" height="225" src="imagens/mjf-logo-mobile.svg">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h2 class="card-title">MJF Games</h2>  
+                                <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
+                                Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
+                            </div>
+                            <div class="btnGroup">
+                                <a class="btn btn-primary" href="">Jogar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                        <img width="100%" height="225" src="imagens/mjf-logo-mobile.svg">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h2 class="card-title">MJF Games</h2>  
+                                <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
+                                Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
+                            </div>
+                            <div class="btnGroup">
+                                <a class="btn btn-primary" href="">Jogar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                        <img width="100%" height="225" src="imagens/mjf-logo-mobile.svg">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h2 class="card-title">MJF Games</h2>  
+                                <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
+                                Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
+                            </div>
+                            <div class="btnGroup">
+                                <a class="btn btn-primary" href="">Jogar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                        <img width="100%" height="225" src="imagens/mjf-logo-mobile.svg">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h2 class="card-title">MJF Games</h2>  
+                                <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
+                                Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
+                            </div>
+                            <div class="btnGroup">
+                                <a class="btn btn-primary" href="">Jogar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                        <img width="100%" height="225" src="imagens/mjf-logo-mobile.svg">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h2 class="card-title">MJF Games</h2>  
+                                <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
+                                Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
+                            </div>
+                            <div class="btnGroup">
+                                <a class="btn btn-primary" href="">Jogar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-card ">
+                    <div class="card">
+                        <img width="100%" height="225" src="imagens/mjf-logo-mobile.svg">
+                        <div class="card-body">
+                            <div class="card-text">
+                                <h2 class="card-title">MJF Games</h2>  
+                                <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
+                                Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
+                            </div>
+                            <div class="btnGroup">
+                                <a class="btn btn-primary" href="">Jogar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section> -->
+    <div id="contato" >
+            <form name="formcontato" action="" method="POST">
+                <h1 class="title">Contato</h1>
+                <p class="nome">
+                    <input type="text" name="nome" placeholder="Informe seu nome" required>
+                </p>
+                <p class="email">
+                    <input type="email" name="email" placeholder="Informe seu email" required>
+                </p>
+                <p class="assunto">
+                    <input type="text" name="assunto" placeholder="Informe o assunto" required>
+                </p>
+                <p class="mensagem">
+                    <textarea name="mensagem" placeholder="Deixe sua mensagem"></textarea>
+                </p>
+                <p class="enviar">
+                    <input class="btn btn-primary" type="submit" name="enviar" value="Enviar">
+                </p>
+            </form>
+    </div> 
+    <div id="sobre" >
+        <div class="sobre" >
+            <div class="sobre-caption"> 
+                <h2 class="title">Sobre</h2>  
                 <p>Este site esta sendo desenvolvido com intuito de aprendizado na area de desenvolvimento web. 
                     Como também será um site para que os amantes de jogos, possam jogar e se divertir.</p>
                 <p>As tecnologias aqui utilizadas são as linguagens html, css e o javascript.</p>
-            </article>
+                <img src="imagens/mjf-logo.svg" alt="">
+            </div>
         </div>
-    </section>
-    
+    </div>
+    <footer>
+        <div class="footer">
+            Desenvolvido por MJF TECNOLOGY.
+        </div>
+    </footer>  
 </body>
 </html>
