@@ -24,10 +24,10 @@ function mostrarSlide(ns){
         slides[i].style.display = "none";
     }
     for (var i = 0; i < indicadores.length; i++){
-        indicadores[i].className = indicadores[i].className.replace("ativo","");
+        indicadores[i].className = indicadores[i].className.replace("active","");
     }
     slides[numSlide - 1].style.display = "flex";
-    indicadores[numSlide - 1].className += " ativo";
+    indicadores[numSlide - 1].className += " active";
 }
 
 function autoplay(){
