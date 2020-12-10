@@ -170,7 +170,7 @@ body{
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     opacity: .5;
-    transition: opacity 0.6s ease;
+    transition: opacity 0.4s ease;
 }
 .carousel-indicators li:not(:last-child){
     margin-right: 10px;
