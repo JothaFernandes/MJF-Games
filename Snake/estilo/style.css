@@ -15,7 +15,7 @@ html{
 
  body{
     overflow: hidden;
-    background-color: #2F4F4F;
+    background-color: rgba(0, 0, 0, 0.9);
     height: 100vh;
     width: 100vw;
     display: flex;
@@ -24,13 +24,14 @@ html{
 
 canvas{
     max-width: 100%;
+    max-height: 100%;
 }
 
 .home{
     background-color: #556B2F;
     max-width: 56rem;
     height: 100vh;
-    margin: 50px auto;
+    margin: 40px auto;
     padding: 10px;
     align-items: center;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
@@ -42,14 +43,15 @@ canvas{
     background-color:#556B2F;
     border-style: solid;
     border-color: #808000;
-    grid-template-rows: 3.5rem 18rem 15rem; 
-    grid-template-columns: 18rem 16rem 10rem; 
+    grid-template-rows: 0.5fr 5fr 0.5fr 5fr; 
+    grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
-     "header header header"
-     "canvas canvas score" 
-     "canvas canvas buttons" ;
+    "header header score"
+    "canvas canvas canvas" 
+    "buttons buttons buttons"
+    "control-mobile control-mobile control-mobile" ; 
+    
 }
-
 .header-snake{
     grid-area: header;
     display: flex;
@@ -58,18 +60,18 @@ canvas{
 }
 
 .header-snake img{
-    margin-top: 0.5rem;
-    width: 3rem;
-    height: 3rem;
-    margin-right: 0.8rem;
+    margin-top: 0.4rem;
+    width: 2rem;
+    height: 2rem;
+    margin-left: 0;
+    margin-right: 3px;   
 }
+
 .header-snake h1{
     color: rgb(154,205,50);
-    margin-top: 0.5rem;
-    font-size: 2.5rem;
+    margin-top: 0.4rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    -webkit-text-stroke-width: 0.5px; /* largura da borda */
-    -webkit-text-stroke-color:#808000; /* cor da borda */
 }
 
 .canvas-container{
@@ -83,45 +85,45 @@ canvas{
 
 .score-container{
     grid-area: score;
-    justify-content: center;
-}
-
-fieldset{
-    width: 95%;
-    height: 4rem;
+    right: 1rem;
+    width: 70%;
+    height: 2.4rem;
+    top: 50px;
+    margin-left: 20px;
     border-radius: 0.5rem;
-    text-align: center;
+    border: 3px solid #9ACD32;
 }
 
 legend{
-    font-size: 1.4rem;
-    color: rgb(154,205,50);
-    -webkit-text-stroke-width: 0.5px; /* largura da borda */
-    -webkit-text-stroke-color:#808000; /* cor da borda */
+    font-size: 1rem;
+    color: #ffffff;
+    text-align: center;  
 }
 
 #score{
-    background-color: YellowGreen;
-    width: 100%;
-    height: 2rem;
+    height: 90%;
     color: #fff;
-    font-size:1.8rem;
+    margin-top: -5px;
+    font-size:1.2rem;
     text-align: center;
-    border-radius: 0.5rem;  
+    align-self: center;
+     
 }
 
 .buttons-container {
-    width: 95%;
     grid-area: buttons;
-    display: inline-block;
-    align-self: center;
+    width: 100%;
+    display: flex;
+    padding: 0px 5px 0px;
+   
 }
 .button{
     background-color:#808000;
     font-family: 'Roboto', sans-serif;
     font-size: 1.4rem;
-    margin-bottom: 30px;
-    width: 100%;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    width: 50%;
     height: 2.6rem;
     border-radius: 0.2rem;
     align-items: center;
@@ -135,115 +137,122 @@ legend{
 }
 
 .button:hover{
-    background-color:rgba(173,255,47);
+    background-color: #7FFF00;
 }
 
 .control-mobile{
-    display: none;
+    grid-area: control-mobile;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns:repeat(2, 1fr);
+    grid-template-areas: 
+    "_up _up"
+    "_left _right"
+    "_down _down";
 }
 
-@media screen and (max-width: 750px){
+.left, .right, .up, .down{
+    cursor: pointer;
+    position: relative;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.4s ease-in-out;
+    user-select: none;
+    background-size: cover;
+}
+
+.control-mobile .left{
+    grid-area: _left;
+    background-image: url(../imagens/left.png);
+    left: 20%;
+    border-radius: 0 5px 5px 0;
+}
+
+.control-mobile .right{
+    grid-area: _right;
+    background-image: url(../imagens/right.png);
+    right: -40%;
+    
+    border-radius: 5px 0 0 5px;
+}
+.control-mobile .down{
+    grid-area: _down;
+    background-image: url(../imagens/down.png);
+    bottom: -6%;
+    left: 40%;
+    border-radius: 5px 0 0 5px;
+}
+.control-mobile .up{
+    grid-area: _up;
+    background-image: url(../imagens/up.png);
+    margin-top: 8px;
+    left: 40%;
+    border-radius: 5px 0 0 5px;
+}
+
+@media (min-width: 576px) {
+    .home{
+        margin: 50px auto;
+    }
+
     .snake-container{
-        width: 100%;
-        display: block;
-        height: 96vh;
+        grid-gap: 0.2rem;
+        display: grid;
+        background-color:#556B2F;
+        border-style: solid;
+        border-color: #808000;
+        grid-template-rows: 3.5rem 18rem 15rem; 
+        grid-template-columns: 18rem 14rem 12rem; 
+        grid-template-areas:
+         "header header header"
+         "canvas canvas score" 
+         "canvas canvas buttons" 
     }
-
-    .header-snake{
-        text-align: start;
-        justify-content: start;
-    }
-
+   
     .header-snake img{
-        margin-top: 0.4rem;
-        width: 2rem;
-        height: 2rem;
-        margin-left: 0;   
+        margin-top: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+        margin-right: 0.8rem;
     }
-
+    
     .header-snake h1{
-        font-size: 1.8rem;
-        margin-top: 0.4rem;
+        color: rgb(154,205,50);
+        margin-top: 0.5rem;
+        font-size: 2.5rem;
+        font-weight: bold;
     }
 
-    fieldset{
-        position: absolute;
-        right: 1rem;
-        width: 25%;
-        height: 2.6rem;
-        top: 58px;
+    .score-container{
+        width: 90%;
+        height: 4rem;
+        margin-left: 10px;
     }
+    
     legend{
-        font-size: 1rem;
+        font-size: 1.4rem; 
     }
 
     #score{
-        height: 1.2rem;
-        font-size:1rem;
+        margin-top: -4px;
+        font-size:2rem;
     }
 
     .buttons-container {
-        width: 100%;
-        display: flex;
-        padding: 0px 5px 0px;; 
+        width: 95%;
+        display: inline-block;
+        align-self: center;
     }
 
     .button{
-        width: 50%;
-        margin-bottom: 5px;
-        margin-right: 5px;
+        width: 100%;
+        margin-bottom: 30px;
     }
 
     .control-mobile{
-        display: grid;
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns:repeat(2, 1fr);
-        grid-template-areas: 
-        "_up _up"
-        "_left _right"
-        "_down _down";
-        height: 30%;
-    }
-
-    .left, .right, .up, .down{
-        cursor: pointer;
-        position: relative;
-        width: 60px;
-        height: 60px;
-        color: #fff;
-        font-weight: bold;
-        font-size: 30px;
-        transition: 0.4s ease-in-out;
-        user-select: none;
-        background-size: cover;
-    }
-    
-    .control-mobile .left{
-        grid-area: _left;
-        background-image: url(imagens/left.png);
-        left: 20%;
-        border-radius: 0 5px 5px 0;
-    }
-    
-    .control-mobile .right{
-        grid-area: _right;
-        background-image: url(imagens/right.png);
-        right: -40%;
-        
-        border-radius: 5px 0 0 5px;
-    }
-    .control-mobile .down{
-        grid-area: _down;
-        background-image: url(imagens/down.png);
-        bottom: -6%;
-        left: 40%;
-        border-radius: 5px 0 0 5px;
-    }
-    .control-mobile .up{
-        grid-area: _up;
-        background-image: url(imagens/up.png);
-        margin-top: 8px;
-        left: 40%;
-        border-radius: 5px 0 0 5px;
+        display: none;
     }
 }
