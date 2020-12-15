@@ -10,47 +10,51 @@ html{
 
 body{
     overflow: hidden;
-    background:  #556B2F;
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
 .container{
     background-color: white;
     max-width: 95%;
     height: 100vh;
-    margin: 50px auto 0px;
+    margin: 45px auto 0px;
     padding: 0;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
 }
 
 .header-dino{
     max-width: 100%;
-    height: 100px;
-    background: url(imagens/dino-game.png) center no-repeat; 
+    height: 60px;
+    background: url(imagens/dino-game.png) center no-repeat;
+    background-size: cover; 
 }
 
 .dino{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     left: 5px;
     background-image: url(imagens/dino.png);
     position: absolute;
     bottom: 6px;
+    background-size: cover;
 }
 
 .cactus{
     position: absolute;
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     bottom: 0;
     background-image: url(imagens/cactus.png);
+    background-size: cover;
 }
 
 .cactus1{
     position: absolute;
-    width: 30px;
-    height: 60px;
+    width: 20px;
+    height: 40px;
     bottom: 0;
     background-image: url(imagens/cactus1.png);
+    background-size: cover;
 }
 
 @keyframes slideright{
@@ -68,7 +72,7 @@ body{
     bottom: 10px;
     background-image: url(imagens/background.png);
     background-repeat: repeat-x;
-    animation: slideright 320s infinite linear;
+    animation: slideright 400s infinite linear;
     width: 95%;
     height: 200px;
 }
@@ -80,34 +84,44 @@ body{
     z-index: 99;
     position: absolute;
 }
-.btnNovo{
-    border: none;
-    outline: 0;
+.btn{
     display: inline-block;
-    color:#fff;
-    background-color: #6B8E23;
+    font-weight: 400;
+    color: #212529;
     text-align: center;
-    font-size: 1.5rem;
-    cursor: pointer;
-    width: 200px;
-    height: 2.4rem;
-    text-decoration: none;
-    border-radius: 5px;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; 
+}
+
+.btnNovo{
+    color:#fff;
+    background-color: #808080;
+    width: 50%;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
 }
 .btnNovo:hover{
-    background-color:#9ACD32;
+    background-color:#4F4F4F;
 }
 
 .over{
-    color: DimGray;
+    color: #696969;
     font-family: 'snap itc';
     font-size: 40px;   
 }
 
 fieldset{
-    width: 120px;
-    height: 45px;
+    width: 70px;
+    height: 40px;
     border-radius: 0.5rem;
     align-items: center;
     top: 0;
@@ -118,59 +132,82 @@ fieldset{
 
 legend{
     color:#4F4F4F;
+    font-size: 0.8rem;
     -webkit-text-stroke-width: 0.5px; /* largura da borda */
     -webkit-text-stroke-color:#808000; /* cor da borda */
 }
 
 #score{
     background-color:#fff;
-    width: 120px;
-    height: 20px;
+    width: 100%;
+    height: 100%;
     color: #4F4F4F;
     font-size:25px;
     text-align: center;
     border-radius: 0.5rem;
-    top: 0; 
+    margin-top: -4px; 
 }
 
 
-@media screen and (max-width: 400px){
+@media (min-width: 576px) {
 
     .header-dino{
-        height: 60px;
-        background-size: cover;
+        height: 100px;
     }
     .dino{
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
+    }
+
+    .cactus{
+        width: 60px;
+        height: 60px;
+    }
+    .cactus1{
+        width: 30px;
+        height: 60px;
+    }
+
+    .background{
+        animation: slideright 300s infinite linear;
+    }
+
+    fieldset{
+        width: 120px;
+        height: 45px;
+    }
+        
+    .btnNovo{
+        width: 200px;
+        height: 2.4rem;
+    }
+}
+
+@media (min-width : 576px) and (orientation : landscape) { 
+    .header-dino{
+        height: 60px;
+    }
+    .dino{
+        width: 40px;
+        height: 40px;
         background-size: cover;
     }
 
     .cactus{
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         background-size: cover;
     }
     .cactus1{
-        width: 25px;
-        height: 50px;
+        width: 20px;
+        height: 40px;
         background-size: cover;
     }
 
-    .background{
-        animation: slideright 410s infinite linear;
-    }
 
     fieldset{
         width: 70px;
-        height: 45px;
+        height: 40px;
     }
-    #score{
-        width: 70px;
-    }
-    
-    .btnNovo{
-        width: 50%;
-        height: 2rem;
-    }
+        
 }

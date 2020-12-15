@@ -124,13 +124,13 @@ var right = document.querySelector('.right');
 var down = document.querySelector('.down');
 up.addEventListener('touchstart',function(){ 
     direction = "up";
-      });
+      },{passive: true});
 left.addEventListener('touchstart',function(){ 
     direction = "left";
-      });
+      },{passive: true});
 right.addEventListener('touchstart',function(){ 
     direction = "right";
-      });
+      },{passive: true});
 down.addEventListener('touchstart',function(){ 
     direction = "down";
-     });
+     },{passive: true});
