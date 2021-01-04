@@ -17,17 +17,17 @@ window.onload = ()=>{
         perdeu:2
     };
     let messages = [];
-    var dinomessage = new ObjectMessage(cnv.height/4,"DINO GAME","50px algerian","#006600")
+    var dinomessage = new ObjectMessage(cnv.height/4,"DINO GAME","bold 50px Roboto","#FF4500");
     messages.push(dinomessage);
-    var startmessage = new ObjectMessage(cnv.height/2,"PRESS SPACE","30px algerian","#006600")
+    var startmessage = new ObjectMessage(cnv.height/2,"PRESS TO START","30px Roboto","#D2691E");
     messages.push(startmessage);
-    var endmessage = new ObjectMessage(cnv.height/2 - 25,"GAME OVER","50px algerian","#e60000")
+    var endmessage = new ObjectMessage(cnv.height/2 - 25,"GAME OVER","50px snap itc","#FF8C00");
     messages.push(endmessage);
     
     estadoAtual = estados.jogar;
 
     function handle(event){
-        if(event.keyCode == 32){
+        if(event.keyCode == 32 || event.touches.length){
             if (estadoAtual == estados.jogar){
                 estadoAtual = estados.jogando;
                 dinomessage.visible = false;
@@ -40,34 +40,9 @@ window.onload = ()=>{
                 dino.score = 0;
                 endmessage.visible = false;
             }
-            //else if (estadoAtual == estados.perdeu && bloco.y >= 2 * ALTURA) {
-            //     estadoAtual = estados.jogar;
-            //     obstaculos.limpa();
-            //     bloco.reset();
-            // }
         }    
     }
-    function handlemobile(event){
-        
-            if (estadoAtual == estados.jogar){
-                estadoAtual = estados.jogando;
-                dinomessage.visible = false;
-                startmessage.visible = false;
-            }else if (estadoAtual == estados.jogando){
-                     dino.jump();
-            } else if (estadoAtual == estados.perdeu){
-                estadoAtual = estados.jogar;
-                obstaculos = [];
-                dino.score = 0;
-                endmessage.visible = false;
-            }
-            //else if (estadoAtual == estados.perdeu && bloco.y >= 2 * ALTURA) {
-            //     estadoAtual = estados.jogar;
-            //     obstaculos.limpa();
-            //     bloco.reset();
-            // }
-           
-    }
+    
 
     function update(){
         if (estadoAtual == estados.jogando){
@@ -75,7 +50,7 @@ window.onload = ()=>{
             dino.atualiza();
             if (insereobs == 0) {
                 obstaculos.push(new Obs(obsSheet));
-                insereobs = 40 + Math.floor(Math.random()*100);
+                insereobs = 50 + Math.floor(Math.random()*100);
             }else { 
                 insereobs --;
             }
@@ -83,7 +58,7 @@ window.onload = ()=>{
                 var obs = obstaculos[i];
                 obs.atualiza();
                 if(obs.posX == 0){
-                    dino.score++;
+                    dino.score += 10;
                 }
                 if (dino.posX  < obs.posX + obs.width - 30 && dino.posX + dino.width - 10 >= obs.posX && dino.posY + dino.height >= obs.posY + 10){
                     estadoAtual = estados.perdeu;
@@ -93,7 +68,8 @@ window.onload = ()=>{
                     obstaculos.splice(obs,1);
                 }  
             }
-        }   
+        } 
+          
     }
 
     function draw(){
@@ -128,7 +104,7 @@ window.onload = ()=>{
         
         if(messages.length !==0){
             for(var i in messages){
-                var message = messages[i]
+                var message = messages[i];
                 if(message.visible){
                     ctx.font = message.font;
                     ctx.fillStyle = message.color;
@@ -147,7 +123,7 @@ window.onload = ()=>{
         draw();   
     }
     document.addEventListener('keydown', handle);
-    document.addEventListener('touchstart', handlemobile); 
+    document.addEventListener('touchstart', handle); 
     loop();     
 }
 
@@ -165,10 +141,9 @@ function Scene(img){
     }
 
     this.atualiza = function(){
-        const movimentoDoChao = 2;
-        const repeteEm = this.width;
-        const movimentacao = this.posX - movimentoDoChao;
-        this.posX = movimentacao % repeteEm;
+        const movefundo = 2;
+        const mover = this.posX - movefundo;
+        this.posX = mover % this.width;
     }
       
 }
@@ -242,6 +217,7 @@ function Obs(img) {
         }
         this.srcX = Math.floor(this.countAnim / 8) * this.width;
     }
+
 }
 
 function ObjectMessage(y,text,font,color){

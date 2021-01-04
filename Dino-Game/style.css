@@ -3,8 +3,6 @@ html{
 }
 *, *:before, *:after{
     box-sizing: inherit;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
     margin: 0;
     padding: 0;}
 
@@ -21,79 +19,18 @@ canvas{
 
 .container{ 
     max-width: 95%;
-    height: 100vh;
     margin: 60px auto 0px;
-    padding: 0;   
+    padding: 0; 
 }
 
 @media (min-width: 576px) {
     .container{
-        margin: 60px auto 0px;
-    }
-
-    .header-dino{
-        height: 100px;
-    }
-    .dino{
-        width: 60px;
-        height: 60px;
-    }
-
-    .cactus{
-        width: 60px;
-        height: 60px;
-    }
-    .cactus1{
-        width: 30px;
-        height: 60px;
-    }
-
-    .background{
-        animation: slideright 300s infinite linear;
-    }
-
-    fieldset{
-        width: 120px;
-        height: 45px;
-    }
-        
-    .btnNovo{
-        width: 200px;
+        margin: 80px auto 0px;
     }
 }
 
 @media screen and (max-device-width: 640px) and (orientation: landscape){ 
-    .header-dino{
-        height: 60px;
+    .container{
+        margin: 50px auto 0px;
     }
-    .background{
-        height: 200px;
-        background-size: contain;
-    }
-    .dino{
-        width: 40px;
-        height: 40px;
-        background-size: cover;
-    }
-
-    .cactus{
-        width: 40px;
-        height: 40px;
-        background-size: cover;
-    }
-    .cactus1{
-        width: 20px;
-        height: 40px;
-        background-size: cover;
-    }
-
-    fieldset{
-        width: 70px;
-        height: 40px;
-    }
-
-    .btnNovo{
-        width: 200px;
-    }
-        
 }

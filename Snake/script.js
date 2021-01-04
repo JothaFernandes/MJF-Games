@@ -7,10 +7,13 @@ snake[0] = {
     x: 8 * box,
     y: 8 * box
 }
+var foodImg = new Image();
+foodImg.src = "imagens/food.png";
 let food = {
     x: Math.floor(Math.random() * 15 + 1) * box,
     y: Math.floor(Math.random() * 15 + 1) * box
 }
+
 var rodando = false;
 let jogo;
 var intervalo;
@@ -35,10 +38,7 @@ function desenharTela(){
         ctx.strokeRect(snake[i].x, snake[i].y, box , box );  
     }
     //Fruta
-    ctx.fillStyle = 'Maroon';
-    ctx.shadowBlur = 20;
-    ctx.shadowColor = "black";
-    ctx.fillRect(food.x, food.y, box, box);
+    ctx.drawImage(foodImg, food.x, food.y);
 }
 
 document.addEventListener('keydown', update);
@@ -72,6 +72,7 @@ function principal(){
         score += 50;
         document.getElementById("score").innerHTML = score; 
     }
+    console.log(food.x, food.y);
 
     let newhead = {
         x: snakex,
