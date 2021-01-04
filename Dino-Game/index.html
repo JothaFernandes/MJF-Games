@@ -6,13 +6,13 @@
         <title>Dino Game</title>
         <link rel="stylesheet" href="style.css"></link>
         <link rel="stylesheet" href="../css/header-menu.css"></link>
-        <script src="script.js" charset="utf-8" defer ></script>
         <script defer src="../header.js"></script>
+        <script src="script.js" ></script>
         <link rel="icon" type="imagem/png"  href="../imagens/mjf-icon.svg" />
     </head>
     <body>
         <header id="header-page">
-                <img src="../imagens/mjf-logo.svg" alt="">
+            <img src="../imagens/mjf-logo.svg" alt="">
             <nav id="menu">
                 <a class="" href="../index.html">Home</a>
                 <a class="ativo" href="../index.html#jogos">Jogos</a>
@@ -24,16 +24,7 @@
             </div>
         </header>
         <div class="container">
-            <div id="headerdino" class="header-dino" >
-            </div>
-            <fieldset id="dino-score" class="score-container">
-                <legend>Score</legend>
-                <div id="score">0</div>
-            </fieldset>
-            <div class="game-over"></div>
-                <div class="background">
-                    <div class="dino"></div>
-                </div>
-        </div>
+            <canvas width="600" height="300"></canvas>
+        </div> 
     </body>
 </html>
