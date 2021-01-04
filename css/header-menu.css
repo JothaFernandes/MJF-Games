@@ -18,6 +18,7 @@ header {
 header img{
     width: 150px;
     height: 40px;
+    margin-top: 5px;
     margin-left: 10px;
 }
 
@@ -64,6 +65,7 @@ header #menu{
 
     header{
         display: block;
+        padding: 2px;
     }
 
     header img{
@@ -79,9 +81,9 @@ header #menu{
     .btnMenu{
         display: flex;
         position: absolute;
-        width: 35px;
-        height: 35px;
-        right: 5px;
+        width: 30px;
+        height: 30px;
+        right: 15px;
         top: 5px;
         justify-content: center;
         align-items: center;
