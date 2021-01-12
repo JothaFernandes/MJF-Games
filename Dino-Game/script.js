@@ -17,74 +17,97 @@ window.onload = ()=>{
         perdeu:2
     };
     let messages = [];
-    var dinomessage = new ObjectMessage(cnv.height/4,"DINO GAME","bold 50px Roboto","#FF4500");
+    var dinomessage = new ObjectMessage(cnv.height/4,"DINO GAME","bold 50px Bungee Shade","#FF4500");
     messages.push(dinomessage);
-    var startmessage = new ObjectMessage(cnv.height/2,"PRESS TO START","30px Roboto","#D2691E");
+    var startmessage = new ObjectMessage(cnv.height/2,"START","bold 30px Bungee Inline","#D2691E");
     messages.push(startmessage);
-    var endmessage = new ObjectMessage(cnv.height/2 - 25,"GAME OVER","50px snap itc","#FF8C00");
+    var endmessage = new ObjectMessage(cnv.height/2 - 25,"GAME OVER","bold 50px Bungee Shade","#FF0000");
     messages.push(endmessage);
+    pontosfase = [100,200];
+    fase = 0;
     
-    estadoAtual = estados.jogar;
+    estado = estados.jogar;
 
     function handle(event){
         if(event.keyCode == 32 || event.touches.length){
-            if (estadoAtual == estados.jogar){
-                estadoAtual = estados.jogando;
+            if (estado == estados.jogar){
+                estado = estados.jogando;
                 dinomessage.visible = false;
                 startmessage.visible = false;
-            }else if (estadoAtual == estados.jogando){
+            }else if (estado == estados.jogando){
                      dino.jump();
-            } else if (estadoAtual == estados.perdeu){
-                estadoAtual = estados.jogar;
+            } else if (estado == estados.perdeu){
+                estado = estados.jogar;
                 obstaculos = [];
+                if(dino.score > record){
+                    localStorage.setItem("record",dino.score);
+                    record = dino.score;
+                }
                 dino.score = 0;
                 endmessage.visible = false;
+                for(let i in obstaculos){
+                    var obs = obstaculos[i];
+                    obs.speed = 5;}
+                faseatual = 0;
             }
         }    
     }
     
-
     function update(){
-        if (estadoAtual == estados.jogando){
+        if (estado == estados.jogando){
             scene.atualiza();
             dino.atualiza();
-            if (insereobs == 0) {
-                obstaculos.push(new Obs(obsSheet));
-                insereobs = 50 + Math.floor(Math.random()*100);
-            }else { 
-                insereobs --;
-            }
+            insere();
             for(let i in obstaculos){
                 var obs = obstaculos[i];
                 obs.atualiza();
                 if(obs.posX == 0){
                     dino.score += 10;
+                    if (fase < pontosfase.length && dino.score == pontosfase[fase]){
+                        fase ++;    
+                    }
                 }
                 if (dino.posX  < obs.posX + obs.width - 30 && dino.posX + dino.width - 10 >= obs.posX && dino.posY + dino.height >= obs.posY + 10){
-                    estadoAtual = estados.perdeu;
+                    estado = estados.perdeu;
                     endmessage.visible = true;
                 }
                 if(obs.posX <= -obs.width){
                     obstaculos.splice(obs,1);
                 }  
             }
-        } 
-          
+        }      
+    }
+
+    function insere(){
+        if (insereobs == 0){
+            obstaculos.push(new Obs(obsSheet));
+            if(fase == 0){
+                insereobs = 50 + Math.floor(Math.random()*50);
+            }else if(fase == 1){
+                insereobs = 40 + Math.floor(Math.random()*40);
+            }else if(fase == 2){
+                insereobs = 30 + Math.floor(Math.random()*40);
+            }
+        }else { 
+            insereobs --;
+        }
     }
 
     function draw(){
         ctx.clearRect(0,0,cnv.width,cnv.height);
         scene.draw(ctx);
-        ctx.fillStyle="#fff";
+        ctx.fillStyle="#FFFAFA";
         ctx.font = "20px Roboto";
         ctx.fillText("Score "+ dino.score,15,15);
-        if (estadoAtual == estados.jogando){
+        ctx.fillText("Record "+ record,480,15);
+        
+        if (estado == estados.jogando){
             for(let i in obstaculos){
                 var obs = obstaculos[i];
                 obs.draw(ctx);    
             }
             dino.draw(ctx); 
-        }if (estadoAtual == estados.jogar){
+        }if (estado == estados.jogar){
             dinomessage.visible = true;
             startmessage.visible = true;
             endmessage.visible = false;
@@ -92,7 +115,7 @@ window.onload = ()=>{
             dino.posY = 240;
             dino.countAnim = 0;
             dino.draw(ctx);
-        }if (estadoAtual == estados.perdeu){
+        }if (estado == estados.perdeu){
             dino.countAnim = 0;
             for(let i in obstaculos){
                 var obs = obstaculos[i];
@@ -102,7 +125,7 @@ window.onload = ()=>{
             dino.draw(ctx);
         }
         
-        if(messages.length !==0){
+        if(messages.length !== 0){
             for(var i in messages){
                 var message = messages[i];
                 if(message.visible){
@@ -113,7 +136,6 @@ window.onload = ()=>{
                     ctx.fillText(message.text, message.x, message.y);
                 }
             }
-
         }
     }
 
@@ -123,7 +145,9 @@ window.onload = ()=>{
         draw();   
     }
     document.addEventListener('keydown', handle);
-    document.addEventListener('touchstart', handle); 
+    document.addEventListener('touchstart', handle);
+    var record = localStorage.getItem("record");
+        if(record == null)record = 0; 
     loop();     
 }
 
@@ -141,8 +165,8 @@ function Scene(img){
     }
 
     this.atualiza = function(){
-        const movefundo = 2;
-        const mover = this.posX - movefundo;
+        const moveScene = 2;
+        const mover = this.posX - moveScene;
         this.posX = mover % this.width;
     }
       
@@ -160,7 +184,6 @@ function Dino(img){
     this.gravity = 1;
     this.forçaDoPulo = 16;
     this.score = 0;
-
     this.draw = function(ctx){
         ctx.drawImage(this.img,this.srcX,this.srcY,this.width,this.height,this.posX,this.posY,this.width,this.height);
         this.animation();
@@ -199,8 +222,8 @@ function Obs(img) {
     this.posY = 240;
     this.img = img;
     this.countAnim = 0;
-    this.speed = 5;
-       
+    this.speed = 6;
+ 
     this.draw = function(ctx){
         ctx.drawImage(this.img,this.srcX,this.srcY,this.width,this.height,this.posX,this.posY,this.width,this.height);
         this.animation();  
