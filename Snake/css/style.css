@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Potta+One&display=swap');
 
 html{
     box-sizing: border-box;
@@ -31,7 +32,7 @@ canvas{
     background-color: #556B2F;
     max-width: 56rem;
     height: 100vh;
-    margin: 38px auto;
+    margin: 39px auto;
     padding: 10px;
     align-items: center;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.473);
@@ -61,16 +62,17 @@ canvas{
 
 .header-snake img{
     margin-top: 0.4rem;
-    width: 2rem;
-    height: 2rem;
+    width: 1.8rem;
+    height: 1.8rem;
     margin-left: 0;
     margin-right: 3px;   
 }
 
 .header-snake h1{
+    font-family: 'Potta One', sans-serif;
     color: rgb(154,205,50);
     margin-top: 0.4rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -149,7 +151,7 @@ legend{
     "_up _up"
     "_left _right"
     "_down _down";
-    height: 45%;
+    height: 48%;
 }
 
 .left, .right, .up, .down{

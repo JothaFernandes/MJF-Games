@@ -20,7 +20,7 @@ var intervalo;
 let direction = "right";
 var score;
 var gameover = new Image();
-gameover.src = 'imagens/game_Over.png';
+gameover.src = 'imagens/gameOver.png';
 
 novoJogo();
 
@@ -72,7 +72,6 @@ function principal(){
         score += 50;
         document.getElementById("score").innerHTML = score; 
     }
-    console.log(food.x, food.y);
 
     let newhead = {
         x: snakex,
