@@ -25,7 +25,7 @@ var startmessage = new ObjectMessage(cnv.height/2,"START","bold 30px Potta one",
 messages.push(startmessage);
 var endmessage = new ObjectMessage(cnv.height/3,"GAME OVER","bold 50px Potta one","#FF0000");
 messages.push(endmessage);
-var restartmessage = new ObjectMessage(cnv.height/2,"START","bold 30px Potta one","#556B2F");
+var restartmessage = new ObjectMessage(cnv.height/2,"RESTART","bold 30px Potta one","#556B2F");
 messages.push(restartmessage);
 pontosfase = [100,200];
 fase = 0;
@@ -51,8 +51,7 @@ window.onload = ()=>{
         }
         if (estado == estados.perdeu){
             endmessage.visible = true;
-            restartmessage.visible = true;
-            snake.draw();   
+            restartmessage.visible = true;   
         }
         
         if(messages.length !== 0){
@@ -70,17 +69,19 @@ window.onload = ()=>{
     }
 
     function update(){
-        snake.update();
-        
-        if(snake.eat(food)){
-            food.position();
-            score += 50;
-            document.getElementById("score").innerHTML = score; 
-        }
-        if(snake.collide()){
-            gameOver();
-            estado = estados.perdeu; 
-        };    
+        if (estado == estados.jogando){
+            snake.update();
+
+            if(snake.eat(food)){
+                food.position();
+                score += 50;
+                document.getElementById("score").innerHTML = score; 
+            }
+            if(snake.collide()){
+                gameOver();
+                estado = estados.perdeu; 
+            }
+        }   
     }
 
     function loop(){
@@ -91,9 +92,17 @@ window.onload = ()=>{
     }
 
     document.addEventListener('keydown', handle);
-    document.addEventListener('click', function(){
-        estado = estados.jogar;
-        
+    window.addEventListener('click', function(){ 
+        if(estado == estados.jogar){
+            estado = estados.jogando;
+            snakemessage.visible = false;
+            startmessage.visible = false;
+            snake.update();
+        }else if(estado == estados.perdeu){
+            estado = estados.jogar;
+            endmessage.visible = false;
+            restartmessage.visible = false; 
+        }  
     });
 
     function handle(evt){ 
