@@ -19,13 +19,15 @@ var estados = {
     perdeu:2
 };
 let messages = [];
-var snakemessage = new ObjectMessage(cnv.height/3,"SNAKE GAME","bold 50px Potta one","#808000");
+var snakemessage = new ObjectMessage(cnv.height/3,"SNAKE GAME","bold 80px VT323","#808000");
 messages.push(snakemessage);
-var startmessage = new ObjectMessage(cnv.height/2,"START","bold 30px Potta one","#556B2F");
+var startmessage = new ObjectMessage(cnv.height/2,"START","bold 30px VT323","#556B2F");
 messages.push(startmessage);
-var endmessage = new ObjectMessage(cnv.height/3,"GAME OVER","bold 50px Potta one","#FF0000");
+var endmessage = new ObjectMessage(cnv.height/3,"GAME OVER","bold 80px VT323","#FF0000");
+endmessage.visible = false;
 messages.push(endmessage);
-var restartmessage = new ObjectMessage(cnv.height/2,"RESTART","bold 30px Potta one","#556B2F");
+var restartmessage = new ObjectMessage(cnv.height/2,"RESTART","bold 30px VT323","#556B2F");
+restartmessage.visible = false;
 messages.push(restartmessage);
 pontosfase = [100,200];
 fase = 0;
@@ -45,9 +47,6 @@ window.onload = ()=>{
         }if (estado == estados.jogar){
             snakemessage.visible = true;
             startmessage.visible = true;
-            endmessage.visible = false;
-            restartmessage.visible = false;
-            snake.draw();
         }
         if (estado == estados.perdeu){
             endmessage.visible = true;
@@ -78,8 +77,10 @@ window.onload = ()=>{
                 document.getElementById("score").innerHTML = score; 
             }
             if(snake.collide()){
-                gameOver();
                 estado = estados.perdeu; 
+                gameOver();
+                console.log(estado);
+                
             }
         }   
     }

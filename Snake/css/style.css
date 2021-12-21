@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
 
 html{
@@ -38,12 +40,11 @@ canvas{
 }
 
 .snake-container{
-    grid-gap: 0.2rem;
     display: grid;
     background-color:#556B2F;
     border-style: solid;
     border-color: #808000;
-    grid-template-rows: 0.3fr 3fr 0.25fr 3fr; 
+    grid-template-rows: 0.3fr 3fr 0.01fr 3fr; 
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
     "header header score"
@@ -56,7 +57,7 @@ canvas{
     grid-area: header;
     display: flex;
     text-align: center;
-    justify-content: center;
+    justify-content: left;
 }
 
 .header-snake img{
@@ -69,8 +70,9 @@ canvas{
 
 .header-snake h1{
     color: rgb(154,205,50);
+    font-family: VT323;
     margin-top: 0.4rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -95,12 +97,14 @@ canvas{
 }
 
 legend{
+    font-family: VT323;
     font-size: 1rem;
     color: #ffffff;
     text-align: center;  
 }
 
 #score{
+    font-family: VT323;
     height: 90%;
     color: #fff;
     margin-top: -5px;
@@ -141,6 +145,7 @@ legend{
 }
 
 .control-mobile{
+    background: url(../imagens/direction.png) center no-repeat;
     grid-area: control-mobile;
     display: grid;
     grid-template-rows: repeat(3, 0.5fr);
@@ -149,7 +154,7 @@ legend{
     "_up _up"
     "_left _right"
     "_down _down";
-    height: 45%;
+    height: 60%;
 }
 
 .left, .right, .up, .down{
@@ -164,28 +169,28 @@ legend{
 
 .control-mobile .left{
     grid-area: _left;
-    background-image: url(../imagens/left.png);
+    /* background-image: url(../imagens/left.png); */
     left: 20%;
     border-radius: 0 5px 5px 0;
 }
 
 .control-mobile .right{
     grid-area: _right;
-    background-image: url(../imagens/right.png);
+    /* background-image: url(../imagens/right.png); */
     right: -40%;
     
     border-radius: 5px 0 0 5px;
 }
 .control-mobile .down{
     grid-area: _down;
-    background-image: url(../imagens/down.png);
+    /* background-image: url(../imagens/down.png); */
     bottom: -6%;
     left: 40%;
     border-radius: 5px 0 0 5px;
 }
 .control-mobile .up{
     grid-area: _up;
-    background-image: url(../imagens/up.png);
+    /* background-image: url(../imagens/up.png); */
     left: 40%;
     border-radius: 5px 0 0 5px;
 }
